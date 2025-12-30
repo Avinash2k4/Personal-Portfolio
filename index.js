@@ -1,4 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Admin Mode Logic ---
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === 'true') {
+        localStorage.setItem('admin_mode', 'true');
+    } else if (urlParams.get('admin') === 'false') {
+        localStorage.removeItem('admin_mode');
+    }
+    const isAdmin = localStorage.getItem('admin_mode') === 'true';
+    if (isAdmin) {
+        document.body.classList.add('admin-mode');
+    }
+
+    // --- Secret Admin Trigger ---
+    const logo = document.querySelector('.logo');
+    let logoClicks = 0;
+    let logoClickTimer;
+
+    logo.addEventListener('click', () => {
+        logoClicks++;
+        clearTimeout(logoClickTimer);
+        logoClickTimer = setTimeout(() => {
+            logoClicks = 0;
+        }, 1000);
+
+        if (logoClicks === 3) {
+            const newState = !isAdmin;
+            if (newState) {
+                localStorage.setItem('admin_mode', 'true');
+                alert('Admin Mode Enabled');
+            } else {
+                localStorage.removeItem('admin_mode');
+                alert('Admin Mode Disabled');
+            }
+            location.reload();
+        }
+    });
 
     // --- Profile Image Logic ---
     const profileUpload = document.getElementById('profile-upload');
@@ -18,7 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Click profile to upload
     profileImgContainer.addEventListener('click', () => {
-        profileUpload.click();
+        if (isAdmin) {
+            profileUpload.click();
+        }
     });
 
     // Handle file selection
@@ -186,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.className = 'timeline-item';
                 div.id = `item-${item.id}`; // Add ID for delete animation targeting
                 div.innerHTML = `
-                    <button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_education', this);"><i class="fas fa-trash"></i></button>
+                    ${isAdmin ? `<button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_education', this);"><i class="fas fa-trash"></i></button>` : ''}
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">${item['edu-year']}</div>
                     <div class="timeline-content">
@@ -219,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const span = document.createElement('span');
                     span.className = 'skill-tag';
                     span.id = `item-${item.id}`;
-                    span.innerHTML = `<i class="fas fa-check-circle"></i> ${item['skill-name']} <button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_skills', this);"><i class="fas fa-trash"></i></button>`;
+                    span.innerHTML = `<i class="fas fa-check-circle"></i> ${item['skill-name']} ${isAdmin ? `<button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_skills', this);"><i class="fas fa-trash"></i></button>` : ''}`;
                     tagsContainer.appendChild(span);
                 }
             }
@@ -249,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tags = item['proj-tags'] ? item['proj-tags'].split(',').map(t => `<span>${t.trim()}</span>`).join('') : '';
 
                 el.innerHTML = `
-                    <button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_projects', this); return false;"><i class="fas fa-trash"></i></button>
+                    ${isAdmin ? `<button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_projects', this); return false;"><i class="fas fa-trash"></i></button>` : ''}
                     <div class="project-icon"><i class="fas fa-code"></i></div>
                     <div class="project-info">
                         <h3>${item['proj-title']}</h3>
@@ -274,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.style.position = 'relative';
                 const link = item['cert-link'] || '#';
                 li.innerHTML = `
-                    <button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_certs', this); return false;"><i class="fas fa-trash"></i></button>
+                    ${isAdmin ? `<button class="delete-item-btn" onclick="deleteItem(${item.id}, 'portfolio_certs', this); return false;"><i class="fas fa-trash"></i></button>` : ''}
                     <a href="${link}" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px; width: 100%;"><i class="fas fa-certificate"></i> ${item['cert-name']}</a>
                 `;
                 container.appendChild(li);
@@ -392,19 +430,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Only add button if not already present (skips dynamic items)
-            if (!item.querySelector('.delete-item-btn')) {
+            // Only add button if in admin mode and not already present (skips dynamic items)
+            if (isAdmin && !item.querySelector('.delete-item-btn')) {
                 const btn = document.createElement('button');
                 btn.className = 'delete-item-btn';
                 btn.innerHTML = '<i class="fas fa-trash"></i>';
                 btn.setAttribute('onclick', `deleteItem('${id}', 'static', this); return false;`);
-
-                // Ensure proper positioning for list items with links
-                const link = item.querySelector('a');
-                if (link && item.tagName === 'LI') {
-                    // For certifications/list items, we want button absolute right
-                    // CSS handles this if LI is relative
-                }
 
                 item.appendChild(btn);
             }

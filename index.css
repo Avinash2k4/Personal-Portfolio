@@ -70,12 +70,17 @@ section {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
-    display: flex;
+    display: none;
+    /* Hidden by default */
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: var(--transition);
     z-index: 10;
+}
+
+body.admin-mode .section-add-btn {
+    display: flex;
 }
 
 .section-add-btn:hover {
@@ -189,11 +194,16 @@ section {
     width: 100px;
     height: 100px;
     margin-bottom: 20px;
-    cursor: pointer;
+    cursor: default;
+    /* Default to normal cursor */
     transition: transform 0.3s ease;
 }
 
-.profile-img-container:hover {
+body.admin-mode .profile-img-container {
+    cursor: pointer;
+}
+
+body.admin-mode .profile-img-container:hover {
     transform: scale(1.05);
 }
 
@@ -665,10 +675,10 @@ footer {
     z-index: 20;
 }
 
-.timeline-item:hover .delete-item-btn,
-.project-card:hover .delete-item-btn,
-.cert-list li:hover .delete-item-btn,
-.skill-tag:hover .delete-item-btn {
+body.admin-mode .timeline-item:hover .delete-item-btn,
+body.admin-mode .project-card:hover .delete-item-btn,
+body.admin-mode .cert-list li:hover .delete-item-btn,
+body.admin-mode .skill-tag:hover .delete-item-btn {
     opacity: 1;
 }
 
