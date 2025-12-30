@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avinash P | Portfolio</title>
+    <meta name="description" content="Portfolio of Avinash P - Information Technology Student & Developer">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Avinash<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-img-container">
+                <!-- Placeholder for profile image if user wants to add one real later, using a gradient div for now or text -->
+                <img src="https://ui-avatars.com/api/?name=Avinash+P&background=38bdf8&color=fff&size=200"
+                    alt="Avinash P" class="profile-placeholder" style="object-fit:cover;">
+            </div>
+            <h1 class="animate-text">Hi, I'm <span>Avinash P</span></h1>
+            <p class="subtitle animate-text delay-1">Aspiring IT Professional & Developer</p>
+            <p class="description animate-text delay-2">
+                Seeking an entry-level position to apply my technical skills in Web Development, Database Management,
+                and Java.
+                Passionate about coding and cloud technologies. I integrate my work with AI technologies to provide
+                better
+                and more effective solutions that align with current trends.
+            </p>
+            <div class="cta-btns animate-text delay-3">
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <a href="#projects" class="btn btn-secondary">View Work</a>
+            </div>
+            <div class="social-links animate-text delay-3">
+                <a href="https://www.linkedin.com/in/avinash-p-25766b258" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Avinash2k4" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:avinashilingam10@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="hero-bg-elements">
+            <div class="circle c1"></div>
+            <div class="circle c2"></div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="about" class="education">
+        <button class="section-add-btn" title="Add Education"><i class="fas fa-plus"></i></button>
+        <h2 class="section-title">Education</h2>
+        <div class="timeline" id="education-timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Nov 2022 - May 2026</div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Technology (B.Tech) - IT</h3>
+                    <p>K. Ramakrishnan College of Engineering</p>
+                    <span class="grade">CGPA: 7.7</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">May 2022</div>
+                <div class="timeline-content">
+                    <h3>Higher Secondary Certificate (HSC)</h3>
+                    <p>Best Matriculation Hr Sec School Thanjavur</p>
+                    <span class="grade">Score: 84.83%</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">May 2020</div>
+                <div class="timeline-content">
+                    <h3>Secondary School Leaving Certificate (SSLC)</h3>
+                    <p>Ponnaiyah Ramajayam Public Hr Sec School Thanjavur</p>
+                    <span class="grade">Score: 79.4%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <button class="section-add-btn" title="Add Skill"><i class="fas fa-plus"></i></button>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container" id="skills-container">
+            <!-- Programming -->
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i> SQL (Basic)</span>
+                </div>
+            </div>
+            <!-- Web -->
+            <div class="skill-category">
+                <h3>Web Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML</span>
+                    <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                </div>
+            </div>
+            <!-- Database & Tools -->
+            <div class="skill-category">
+                <h3>Tools & Databases</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                    <span class="skill-tag"><i class="fab fa-git-alt"></i> Git (Basic)</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 3rem;">Soft Skills & Leadership</h2>
+        <div class="soft-skills-grid">
+            <div class="soft-card">
+                <i class="fas fa-users"></i>
+                <h3>Leadership</h3>
+                <p>Organized Avinya-24 & 25, Symposium Events</p>
+            </div>
+            <div class="soft-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Teamwork</h3>
+                <p>Collaborative project development</p>
+            </div>
+            <div class="soft-card">
+                <i class="fas fa-brain"></i>
+                <h3>Problem Solving</h3>
+                <p>Efficient data structures & logic</p>
+            </div>
+            <div class="soft-card">
+                <i class="fas fa-clock"></i>
+                <h3>Time Management</h3>
+                <p>Production scheduling for short films</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <button class="section-add-btn" title="Add Project"><i class="fas fa-plus"></i></button>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid" id="projects-grid">
+            <!-- Initial Projects Loaded via JS or Static here. Let's make them static for SEO and JS will append dynamic ones -->
+            <a href="https://github.com/Avinash2k4" target="_blank" class="project-card">
+                <div class="project-icon"><i class="fas fa-bus"></i></div>
+                <div class="project-info">
+                    <h3>JDBC Bus Ticketing App</h3>
+                    <p>Java application utilizing JDBC for database connectivity and efficient data manipulation.</p>
+                    <div class="tags">
+                        <span>Java</span>
+                        <span>JDBC</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://github.com/Avinash2k4" target="_blank" class="project-card">
+                <div class="project-icon"><i class="fas fa-couch"></i></div>
+                <div class="project-info">
+                    <h3>Furniture Portfolio</h3>
+                    <p>Clean front-end layout with responsive design principles and smooth CSS animations.</p>
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://github.com/Avinash2k4" target="_blank" class="project-card">
+                <div class="project-icon"><i class="fas fa-traffic-light"></i></div>
+                <div class="project-info">
+                    <h3>IoT Traffic Control Patent</h3>
+                    <p>IoT-based system to detect emergency vehicles and adjust traffic signals dynamically.</p>
+                    <div class="tags">
+                        <span>IoT</span>
+                        <span>Innovation</span>
+                        <span>Patent</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+        <button class="section-add-btn" title="Add Certification"><i class="fas fa-plus"></i></button>
+        <h2 class="section-title">Certifications</h2>
+        <ul class="cert-list" id="cert-list">
+            <li><a href="https://drive.google.com/file/d/12xyeJzthiGuXm4uPvfHDh7ZtDA0Cy57d/view?usp=drivesdk"
+                    target="_blank"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px; width: 100%;"><i
+                        class="fas fa-certificate"></i> Azure Fundamentals (Microsoft Certified)</a></li>
+            <li><a href="https://drive.google.com/file/d/1JSKgjkoVHeDjig-pOkjgk6nsAW56Z7rE/view?usp=drivesdk"
+                    target="_blank"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px; width: 100%;"><i
+                        class="fas fa-certificate"></i> NPTEL on Cloud Computing</a></li>
+            <li><i class="fas fa-certificate"></i> Learning Cloud Computing: Core Concept</li>
+            <li><a href="https://drive.google.com/file/d/1d4bS47eYqrh50mLzY-pF4nYDTbjyEkJG/view?usp=drivesdk"
+                    target="_blank"
+                    style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 15px; width: 100%;"><i
+                        class="fas fa-certificate"></i> Basic Course in Artificial Intelligence</a></li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info horizontal">
+                <a href="mailto:avinashilingam10@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>avinashilingam10@gmail.com</p>
+                </a>
+                <a href="https://www.linkedin.com/in/avinash-p-25766b258" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Avinash P</p>
+                </a>
+                <a href="https://github.com/Avinash2k4" target="_blank" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Avinash2k4</p>
+                </a>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Avinash P. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Floating Add Button Removed -->
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New Project</h3>
+                <button class="close-modal" id="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="add-form">
+                    <!-- Dynamic fields will be inserted here -->
+                    <div id="dynamic-fields"></div>
+                    <button type="submit" class="btn btn-primary full-width">Add Item</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Image Upload Elements -->
+    <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+
+    <div id="crop-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px; width: 90%;">
+            <h3>Crop Image</h3>
+            <div class="img-container" style="max-height: 400px; overflow: hidden;">
+                <img id="image-to-crop" src="" style="max-width: 100%;">
+            </div>
+            <div class="action-buttons" style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+                <button id="cancel-crop" class="btn btn-secondary">Cancel</button>
+                <button id="save-crop" class="btn btn-primary">Crop & Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
